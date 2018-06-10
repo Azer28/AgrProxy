@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><definitions xmlns:tns="STREAM" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" name="STREAM" targetNamespace="STREAM">
+    <types>
+        <xsd:schema xmlns:tns="STREAM" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" version="1.0" targetNamespace="STREAM" jxb:version="2.0">
+            <xsd:element name="GetBillList" type="tns:GetBillList"></xsd:element>
+            <xsd:element name="GetBillListResponse" type="tns:GetBillListResponse"></xsd:element>
+            <xsd:element name="GetCategoryList" type="tns:GetCategoryList"></xsd:element>
+            <xsd:element name="GetCategoryListResponse" type="tns:GetCategoryListResponse"></xsd:element>
+            <xsd:element name="GetIconList" type="tns:GetIconList"></xsd:element>
+            <xsd:element name="GetIconListResponse" type="tns:GetIconListResponse"></xsd:element>
+            <xsd:element name="GetIcon" type="tns:GetIcon"></xsd:element>
+            <xsd:element name="GetIconResponse" type="tns:GetIconResponse"></xsd:element>
+            <xsd:element name="GetPayment" type="tns:GetPayment"></xsd:element>
+            <xsd:element name="GetPaymentList" type="tns:GetPaymentList"></xsd:element>
+            <xsd:element name="GetPaymentListResponse" type="tns:GetPaymentListResponse"></xsd:element>
+            <xsd:element name="GetPaymentResponse" type="tns:GetPaymentResponse"></xsd:element>
+            <xsd:element name="GetService" type="tns:GetService"></xsd:element>
+            <xsd:element name="GetServiceList" type="tns:GetServiceList"></xsd:element>
+            <xsd:element name="GetServiceListResponse" type="tns:GetServiceListResponse"></xsd:element>
+            <xsd:element name="GetServiceResponse" type="tns:GetServiceResponse"></xsd:element>
+            <xsd:element name="Pay" type="tns:Pay"></xsd:element>
+            <xsd:element name="PayResponse" type="tns:PayResponse"></xsd:element>
+            <xsd:element name="Register" type="tns:Register"></xsd:element>
+            <xsd:element name="RegisterResponse" type="tns:RegisterResponse"></xsd:element>
+            <xsd:element name="ServiceException" nillable="true" type="tns:ServiceFault"></xsd:element>
+            <xsd:complexType name="GetBillList">
+                <xsd:sequence>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="detail" type="tns:Detail" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Detail">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetBillListResponse">
+                <xsd:sequence>
+                    <xsd:element name="list" type="tns:Bill" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Bill">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="amount" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="min" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="max" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="fixed" type="xsd:boolean" minOccurs="0"></xsd:element>
+                    <xsd:element name="fixedAmountList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="amount" type="xsd:double" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="currency" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="color" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="detailList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="detail" type="tns:Detail" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ServiceFault">
+                <xsd:sequence>
+                    <xsd:element name="code" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="data" type="xsd:anyType" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetIconList">
+                <xsd:sequence>
+                    <xsd:element name="size" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetIconListResponse">
+                <xsd:sequence>
+                    <xsd:element name="icon" type="tns:Icon" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Icon">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="size" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="data" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="created" type="xsd:dateTime" minOccurs="0"></xsd:element>
+                    <xsd:element name="updated" type="xsd:dateTime" minOccurs="0"></xsd:element>
+                    <xsd:element name="active" type="xsd:boolean" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetCategoryList">
+                <xsd:sequence></xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetCategoryListResponse">
+                <xsd:sequence>
+                    <xsd:element name="category" type="tns:Category" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Category">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="icon" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="order" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="childList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="category" type="tns:Category" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="hasServices" type="xsd:boolean" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetService">
+                <xsd:sequence>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetServiceResponse">
+                <xsd:sequence>
+                    <xsd:element name="service" type="tns:Service" form="qualified" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Service">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="category" type="tns:Category" minOccurs="0"></xsd:element>
+                    <xsd:element name="type" minOccurs="0">
+                        <xsd:simpleType>
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <jxb:typesafeEnumClass name="Type"></jxb:typesafeEnumClass>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Direct"></xsd:enumeration>
+                                <xsd:enumeration value="Phased"></xsd:enumeration>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="icon" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="feeList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="fee" type="tns:Fee" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="fieldList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="field" type="tns:Field" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="tariffList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="tariff" type="tns:Tariff" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="currencyList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="currency" type="tns:Currency" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="order" type="xsd:int" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Fee">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="type" minOccurs="0">
+                        <xsd:simpleType>
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <jxb:typesafeEnumClass name="Type"></jxb:typesafeEnumClass>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Lower"></xsd:enumeration>
+                                <xsd:enumeration value="Upper"></xsd:enumeration>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="from" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="to" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="rate" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="min" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="max" type="xsd:double" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Field">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="type" minOccurs="0">
+                        <xsd:simpleType>
+                            <xsd:annotation>
+                                <xsd:appinfo>
+                                    <jxb:typesafeEnumClass name="Type"></jxb:typesafeEnumClass>
+                                </xsd:appinfo>
+                            </xsd:annotation>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:enumeration value="Text"></xsd:enumeration>
+                                <xsd:enumeration value="Password"></xsd:enumeration>
+                                <xsd:enumeration value="Email"></xsd:enumeration>
+                                <xsd:enumeration value="Numeric"></xsd:enumeration>
+                                <xsd:enumeration value="Checkbox"></xsd:enumeration>
+                                <xsd:enumeration value="Radio"></xsd:enumeration>
+                                <xsd:enumeration value="MSISDN"></xsd:enumeration>
+                                <xsd:enumeration value="Amount"></xsd:enumeration>
+                                <xsd:enumeration value="List"></xsd:enumeration>
+                                <xsd:enumeration value="Hidden"></xsd:enumeration>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="label" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="hint" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="capacity" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="pattern" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="editable" type="xsd:boolean" minOccurs="0"></xsd:element>
+                    <xsd:element name="order" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="show" type="xsd:boolean" minOccurs="0"></xsd:element>
+                    <xsd:element name="optionList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="option" type="tns:Option" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Option">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="label" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="selected" type="xsd:boolean" minOccurs="0"></xsd:element>
+                    <xsd:element name="order" type="xsd:int" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Tariff">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="value" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="currency" type="xsd:int" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Currency">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="code" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="iso4217" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="min" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="max" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="format" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Register">
+                <xsd:sequence>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="amount" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="fee" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="currency" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="originator" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="detail" type="tns:Detail" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="RegisterResponse">
+                <xsd:sequence>
+                    <xsd:element name="serial" type="xsd:string" form="qualified" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetIcon">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="size" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetIconResponse">
+                <xsd:sequence>
+                    <xsd:element name="icon" type="tns:Icon" form="qualified" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetServiceList">
+                <xsd:sequence>
+                    <xsd:element name="alias" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetServiceListResponse">
+                <xsd:sequence>
+                    <xsd:element name="service" type="tns:Service" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetPaymentList">
+                <xsd:sequence>
+                    <xsd:element name="originator" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="from" type="xsd:dateTime" minOccurs="0"></xsd:element>
+                    <xsd:element name="to" type="xsd:dateTime" minOccurs="0"></xsd:element>
+                    <xsd:element name="offset" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="limit" type="xsd:int" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetPaymentListResponse">
+                <xsd:sequence>
+                    <xsd:element name="payment" type="tns:Payment" form="qualified" nillable="true" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Payment">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="service" type="tns:Service" minOccurs="0"></xsd:element>
+                    <xsd:element name="serial" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="date" type="xsd:dateTime" minOccurs="0"></xsd:element>
+                    <xsd:element name="originator" type="xsd:string" minOccurs="0"></xsd:element>
+                    <xsd:element name="amount" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="fee" type="xsd:double" minOccurs="0"></xsd:element>
+                    <xsd:element name="currency" type="xsd:int" minOccurs="0"></xsd:element>
+                    <xsd:element name="detailList" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="detail" type="tns:Detail" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="status" type="xsd:int" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Pay">
+                <xsd:sequence>
+                    <xsd:element name="serial" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="PayResponse">
+                <xsd:sequence>
+                    <xsd:element name="payment" type="tns:Payment" form="qualified" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetPayment">
+                <xsd:sequence>
+                    <xsd:element name="serial" type="xsd:string" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="GetPaymentResponse">
+                <xsd:sequence>
+                    <xsd:element name="payment" type="tns:Payment" form="qualified" minOccurs="0"></xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+    <message name="GetCategoryList">
+        <part name="parameters" element="tns:GetCategoryList"></part>
+    </message>
+    <message name="GetCategoryListResponse">
+        <part name="parameters" element="tns:GetCategoryListResponse"></part>
+    </message>
+    <message name="GetServiceList">
+        <part name="parameters" element="tns:GetServiceList"></part>
+    </message>
+    <message name="GetServiceListResponse">
+        <part name="parameters" element="tns:GetServiceListResponse"></part>
+    </message>
+    <message name="GetService">
+        <part name="parameters" element="tns:GetService"></part>
+    </message>
+    <message name="GetServiceResponse">
+        <part name="parameters" element="tns:GetServiceResponse"></part>
+    </message>
+    <message name="GetIconList">
+        <part name="parameters" element="tns:GetIconList"></part>
+    </message>
+    <message name="GetIconListResponse">
+        <part name="parameters" element="tns:GetIconListResponse"></part>
+    </message>
+    <message name="GetIcon">
+        <part name="parameters" element="tns:GetIcon"></part>
+    </message>
+    <message name="GetIconResponse">
+        <part name="parameters" element="tns:GetIconResponse"></part>
+    </message>
+    <message name="GetBillList">
+        <part name="parameters" element="tns:GetBillList"></part>
+    </message>
+    <message name="GetBillListResponse">
+        <part name="parameters" element="tns:GetBillListResponse"></part>
+    </message>
+    <message name="Register">
+        <part name="parameters" element="tns:Register"></part>
+    </message>
+    <message name="RegisterResponse">
+        <part name="parameters" element="tns:RegisterResponse"></part>
+    </message>
+    <message name="Pay">
+        <part name="parameters" element="tns:Pay"></part>
+    </message>
+    <message name="PayResponse">
+        <part name="parameters" element="tns:PayResponse"></part>
+    </message>
+    <message name="GetPaymentList">
+        <part name="parameters" element="tns:GetPaymentList"></part>
+    </message>
+    <message name="GetPaymentListResponse">
+        <part name="parameters" element="tns:GetPaymentListResponse"></part>
+    </message>
+    <message name="GetPayment">
+        <part name="parameters" element="tns:GetPayment"></part>
+    </message>
+    <message name="GetPaymentResponse">
+        <part name="parameters" element="tns:GetPaymentResponse"></part>
+    </message>
+    <message name="ServiceException">
+        <part name="fault" element="tns:ServiceException"></part>
+    </message>
+    <portType name="STREAMPort">
+        <operation name="GetCategoryList">
+            <input wsam:Action="STREAM/STREAMPort/GetCategoryListRequest" message="tns:GetCategoryList"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetCategoryListResponse" message="tns:GetCategoryListResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetCategoryList/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetServiceList">
+            <input wsam:Action="STREAM/STREAMPort/GetServiceListRequest" message="tns:GetServiceList"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetServiceListResponse" message="tns:GetServiceListResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetServiceList/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetService">
+            <input wsam:Action="STREAM/STREAMPort/GetServiceRequest" message="tns:GetService"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetServiceResponse" message="tns:GetServiceResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetService/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetIconList">
+            <input wsam:Action="STREAM/STREAMPort/GetIconListRequest" message="tns:GetIconList"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetIconListResponse" message="tns:GetIconListResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetIconList/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetIcon">
+            <input wsam:Action="STREAM/STREAMPort/GetIconRequest" message="tns:GetIcon"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetIconResponse" message="tns:GetIconResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetIcon/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetBillList">
+            <input wsam:Action="STREAM/STREAMPort/GetBillListRequest" message="tns:GetBillList"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetBillListResponse" message="tns:GetBillListResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetBillList/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="Register">
+            <input wsam:Action="STREAM/STREAMPort/RegisterRequest" message="tns:Register"></input>
+            <output wsam:Action="STREAM/STREAMPort/RegisterResponse" message="tns:RegisterResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/Register/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="Pay">
+            <input wsam:Action="STREAM/STREAMPort/PayRequest" message="tns:Pay"></input>
+            <output wsam:Action="STREAM/STREAMPort/PayResponse" message="tns:PayResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/Pay/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetPaymentList">
+            <input wsam:Action="STREAM/STREAMPort/GetPaymentListRequest" message="tns:GetPaymentList"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetPaymentListResponse" message="tns:GetPaymentListResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetPaymentList/Fault/ServiceException"></fault>
+        </operation>
+        <operation name="GetPayment">
+            <input wsam:Action="STREAM/STREAMPort/GetPaymentRequest" message="tns:GetPayment"></input>
+            <output wsam:Action="STREAM/STREAMPort/GetPaymentResponse" message="tns:GetPaymentResponse"></output>
+            <fault message="tns:ServiceException" name="ServiceException" wsam:Action="STREAM/STREAMPort/GetPayment/Fault/ServiceException"></fault>
+        </operation>
+    </portType>
+    <binding name="STREAMPortBinding" type="tns:STREAMPort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <operation name="GetCategoryList">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetServiceList">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetService">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetIconList">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetIcon">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetBillList">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="Register">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="Pay">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetPaymentList">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+        <operation name="GetPayment">
+            <soap:operation soapAction=""></soap:operation>
+            <input>
+                <soap:body use="literal"></soap:body>
+            </input>
+            <output>
+                <soap:body use="literal"></soap:body>
+            </output>
+            <fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"></soap:fault>
+            </fault>
+        </operation>
+    </binding>
+    <service name="STREAM">
+        <port name="STREAMPort" binding="tns:STREAMPortBinding">
+            <soap:address location="https://public.api.stream.unibank.lan:5443/"></soap:address>
+        </port>
+    </service>
+</definitions>
